@@ -1,6 +1,7 @@
 from flask import Flask, request, send_file
 import matplotlib.pyplot as plt
 import io
+import os  # 👈 Adiciona esta linha aqui
 
 app = Flask(__name__)
 
@@ -52,6 +53,8 @@ def gerar_grafico():
     buf.seek(0)
     return send_file(buf, mimetype="image/png")
     import os
+
+import os  # <-- certifique-se de que isso também está no topo do arquivo!
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
