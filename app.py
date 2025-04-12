@@ -51,7 +51,6 @@ def gerar_grafico():
     plt.savefig(buf, format="png", bbox_inches='tight')
     buf.seek(0)
     return send_file(buf, mimetype="image/png")
-    
     if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
 
