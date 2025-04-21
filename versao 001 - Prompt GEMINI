@@ -1,0 +1,17 @@
+{
+  "contents": [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "Pesquise sobre os preços de imóveis à venda com base em resultados encontrados em sites como OLX, Zap Imóveis, Viva Real ou similares.\n\nUtilize métodos comparativos diretos, análise de imóveis semelhantes (matching por atributos), técnicas de normalização de dados e exclusão de outliers (ex: z-score, IQR). Considere atributos como localização, metragem, número de quartos, vagas, padrão construtivo e facilidades próximas.\n\nUse os seguintes dados como critérios para a simulação:\n{{27.`4`}}, {{27.`5`}}, {{27.`27`}}, {{27.`28`}}, {{27.`29`}}, {{27.`30`}}, {{27.`31`}}, {{27.`0`}}, {{27.`12`}}, {{27.`13`}}, {{27.`14`}}, {{27.`15`}}, {{27.`16`}}, {{27.`17`}}, {{27.`18`}}, {{27.`19`}}, {{27.`20`}}, {{27.`21`}}, {{27.`22`}}, {{27.`23`}}, {{27.`24`}}, {{27.`25`}}\n\n⚠️ ATENÇÃO: Retorne SOMENTE o seguinte conteúdo como se fosse uma atribuição de variável, sem markdown, sem crases, sem comentários, sem prefixos e sem explicações.\n\nresultado = {\n  \"valor_baixo\": 250000,\n  \"valor_medio\": 350000,\n  \"valor_alto\": 450000,\n  \"valor_ideal\": 370000,\n  \"quantidade_imoveis\": 20,\n  \"valor_baixo_formatado\": \"R$ 250.000,00\",\n  \"valor_medio_formatado\": \"R$ 350.000,00\",\n  \"valor_alto_formatado\": \"R$ 450.000,00\",\n  \"valor_ideal_formatado\": \"R$ 370.000,00\",\n  \"percentual_baixo\": 27.8,\n  \"percentual_medio\": 33.3,\n  \"percentual_alto\": 38.9,\n  \"percentual_baixo_formatado\": \"27.8%\",\n  \"percentual_medio_formatado\": \"33.3%\",\n  \"percentual_alto_formatado\": \"38.9%\",\n  \"valor_m2\": \"R$ 6.500,00\",\n  \"valor_por_hectar\": \"R$ 160.000,00\",\n  \"precisao\": \"94.3%\"\n}"
+        }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "googleSearchRetrieval": {}
+    }
+  ]
+}
