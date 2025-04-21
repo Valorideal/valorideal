@@ -1,0 +1,118 @@
+!-- Toggle Venda/Aluguel -->
+<style>
+/* Toggle wrapper */
+.toggle-custom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 120px;
+  height: 36px;
+  background: #800080; /* Cor para Aluguel */
+  border-radius: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Slider (bolinha) */
+.slider-custom {
+  content: "";
+  position: absolute;
+  left: 87px;
+  top: 4px;
+  width: 28px;
+  height: 28px;
+  background: white;
+  border-radius: 50%;
+  transition: left 0.3s ease-in-out;
+  z-index: 1;
+}
+
+/* Texto central */
+.toggle-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: white;
+  font-size: 14px;
+}
+
+/* Estado ativo (Venda) */
+.toggle-custom.ativo {
+  background: #007BFF; /* Cor para Venda */
+}
+
+.toggle-custom.ativo .slider-custom {
+  left: 5px;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const radioVenda = document.getElementById("form-field-venda_aluguel-0");
+    const radioAluguel = document.getElementById("form-field-venda_aluguel-1");
+
+    if (!radioVenda || !radioAluguel) return;
+
+    // Garante que os radios tenham o mesmo name
+    radioVenda.name = "form_fields[venda_aluguel]";
+    radioAluguel.name = "form_fields[venda_aluguel]";
+
+    // Define valores
+    radioVenda.value = "Venda";
+    radioAluguel.value = "Aluguel";
+
+    // Define "Venda" como padrão
+    radioVenda.checked = true;
+    radioAluguel.checked = false;
+    radioVenda.dispatchEvent(new Event('change', { bubbles: true }));
+
+    // Cria o botão visual (toggle)
+    const toggleWrapper = document.createElement("label");
+    toggleWrapper.classList.add("toggle-custom", "ativo");
+
+    const slider = document.createElement("span");
+    slider.classList.add("slider-custom");
+
+    const texto = document.createElement("span");
+    texto.classList.add("toggle-text");
+    texto.textContent = "Venda";
+
+    toggleWrapper.appendChild(slider);
+    toggleWrapper.appendChild(texto);
+
+    // Oculta os radios, mas mantém no DOM
+    radioVenda.style.display = "none";
+    radioAluguel.style.display = "none";
+
+    const parent = radioVenda.closest(".elementor-field-subgroup");
+    if (parent) {
+        // Insere o toggle e os inputs no DOM
+        parent.innerHTML = "";
+        parent.appendChild(toggleWrapper);
+        parent.appendChild(radioVenda);
+        parent.appendChild(radioAluguel);
+    }
+
+    // Alterna entre Venda e Aluguel
+    toggleWrapper.addEventListener("click", () => {
+        if (radioVenda.checked) {
+            radioVenda.checked = false;
+            radioAluguel.checked = true;
+            texto.textContent = "Aluguel";
+            toggleWrapper.classList.remove("ativo");
+            radioAluguel.dispatchEvent(new Event("change", { bubbles: true }));
+        } else {
+            radioAluguel.checked = false;
+            radioVenda.checked = true;
+            texto.textContent = "Venda";
+            toggleWrapper.classList.add("ativo");
+            radioVenda.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+    });
+});
+</script>
